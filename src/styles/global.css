@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #10131c;
+
+}
+
+body, input, button {
+  font-family: 'Roboto', sans-serif;
+  /* deixa a font com um aspecto mais suave */
+  -webkit-font-smoothing: antialiased;
+}
