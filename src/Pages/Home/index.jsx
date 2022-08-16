@@ -7,7 +7,7 @@ import {Card} from '../../components/Card'
 
 export function Home() {
 
-  const [studentName, setStudentName] = useState('nome inicial que vai mudar')
+  const [studentName, setStudentName] = useState('nome inicial')
 
   return (
     <div className="container">
