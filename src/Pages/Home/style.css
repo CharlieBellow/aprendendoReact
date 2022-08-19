@@ -7,11 +7,27 @@
   /*background: #212532;*/
 }
 
-.container h1 {
+.container header {
   margin: 84px 0 24px;
   color: #ffffff;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.container header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-left: 7px;
+
+}
+
+.container header div {
+  display: flex;
+  align-items: center;
+}
 .container input {
   padding: 24px;
   width: 50%;
