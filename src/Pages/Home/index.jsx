@@ -38,8 +38,8 @@ export function Home() {
         avatar: data.avatar_url
       })
 
-      //obs. useEffect não pode ser async, tem que criar uma função async
-      
+      //obs. useEffect não pode ser async, tem que criar uma função async await
+
     })
   }, [
     students
