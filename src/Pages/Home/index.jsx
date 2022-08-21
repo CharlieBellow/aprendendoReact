@@ -39,6 +39,7 @@ export function Home() {
       })
 
       //obs. useEffect não pode ser async, tem que criar uma função async
+      
     })
   }, [
     students
