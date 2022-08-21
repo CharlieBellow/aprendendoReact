@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react' //hook: funções que permitem conectar o estado com o ciclo de vida dos componentes funcionais
+import React, { useState, useEffect } from 'react' //hook: funções que permitem conectar o estado com o ciclo de vida dos componentes funcionais
 
 import './style.css'
 
@@ -9,6 +9,8 @@ export function Home() {
 
   const [studentName, setStudentName] = useState('nome inicial')
   const [students, setStudents] = useState([])
+
+  const [user, setUser] = useState({name: '', avatar: ''})
 
   function handleAddStudent() {
     const newStudent = {
@@ -23,6 +25,25 @@ export function Home() {
     setStudents(prevState => [...prevState, newStudent])
   }
 
+  useEffect(() => {
+    //corpo: ações ou aquilo que eu quero que execute.o useEffect é executado sempre que renderiza a aplicação
+    //console.log('useEffect foi chamado')
+    //comando JS pra fazer requisições HTTP 
+    //consumindo API do github
+    fetch('https://api.github.com/users/charliebellow').then(response => response.json()).then(data => {
+      console.log(data)
+      
+      setUser({
+        name: data.name,
+        avatar: data.avatar_url
+      })
+
+      //obs. useEffect não pode ser async, tem que criar uma função async
+    })
+  }, [
+    students
+    //aqui colocamos os estados dos quais o useEffect depende. se tiver vazio, o useEffect vai ser executado uma única vez. coloca os estados separados por vírgula
+  ]) // estrutura do useEffect
 
   return (
     <div className="container">
@@ -31,8 +52,8 @@ export function Home() {
       <header>
         <h1>Nome: lista de presença</h1>
         <div>
-          <strong>Charlie</strong>
-          <img src="https://github.com/charliebellow.png" alt="foto" />
+          <strong>{user.name}</strong>
+          <img src={user.avatar } alt="foto" />
         </div>
       </header>
       
